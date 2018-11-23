@@ -67,9 +67,9 @@ module.exports = function(app) {
   app.set('appPath', path.join(config.root, 'client'));
 
   if ('production' === env) {
-    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));
-    app.use(express.static(path.join(config.root, 'client', 'bower_components')));
+    app.use(favicon(path.join(config.root, 'client', 'favicon.ico')));    
     app.use(express.static(app.get('appPath')));
+    app.use(express.static(app.get('appPath') + '/bower_components'));
     app.use(morgan('dev'));
   }
 
